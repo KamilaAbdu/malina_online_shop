@@ -1,0 +1,34 @@
+name: malina_online_shop
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.4.4
+  google_fonts: ^6.2.1
+
+flutter_native_splash:
+  color: "#F72055"
+  image: assets/icons/logo.png
+  android: true
+  ios: true
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: MainFont
+      fonts:
+        - asset: assets/fonts/main_font_sf_pro_display.otf
