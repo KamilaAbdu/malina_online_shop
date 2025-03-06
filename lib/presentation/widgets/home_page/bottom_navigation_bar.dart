@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:malina_online_shop/data/core/constants/app_assets.dart';
 import 'package:malina_online_shop/data/core/constants/app_colos.dart';
+import 'package:malina_online_shop/presentation/pages/qr_page.dart';
 import 'package:malina_online_shop/presentation/widgets/home_page/select_cart.dart';
 
 class MainPageBottomNavigationBar extends StatefulWidget {
@@ -15,45 +17,56 @@ class _MainPageBottomNavigationBarState
   int _selectedIndex = 0;
   OverlayEntry? _overlayEntry;
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    if (index == 2) {
+      
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const QrPage()),
+      );
+    } else if (index == 4) {
+     
+      _toggleCartSelectionMenu(context);
+    } else {
+      _removeOverlay();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: _selectedIndex,
-      onTap: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-        if (index == 4) {
-          _toggleCartSelectionMenu(context);
-        } else {
-          _removeOverlay();
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(
+      onTap: _onItemTapped,
+      items: [
+        const BottomNavigationBarItem(
           icon: Icon(Icons.dashboard),
           label: 'Лента',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.favorite),
           label: 'Избранное',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.menu_sharp),
+          icon: Image.asset(AppAssets.qrBottomNavBarIcon),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Профиль',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_basket),
+        const BottomNavigationBarItem(
+          icon: Icon(Icons.shopping_cart),
           label: 'Корзина',
         ),
       ],
       selectedItemColor: AppColors.selectedItem,
       unselectedItemColor: Colors.grey,
       showUnselectedLabels: true,
+      backgroundColor: Colors.white,
     );
   }
 
@@ -72,9 +85,7 @@ class _MainPageBottomNavigationBarState
         right: 14,
         bottom: 56,
         child: SelectCart(
-          onClose: () {
-            _removeOverlay();
-          }
+          onClose: _removeOverlay,
         ),
       ),
     );

@@ -22,7 +22,7 @@ class MainSearchField extends StatelessWidget {
       child: const TextField(
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.search),
-          labelText: 'Искать в Malina',
+          hintText: 'Искать в Malina',
           filled: true,
           fillColor: AppColors.searchField,
           enabledBorder: OutlineInputBorder(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:malina_online_shop/data/core/constants/app_dimens.dart';
 import 'package:malina_online_shop/presentation/pages/cart_page.dart';
+import 'package:malina_online_shop/presentation/pages/food_cart_page.dart';
+import 'package:malina_online_shop/presentation/pages/goods_cart_page.dart';
 import 'package:malina_online_shop/presentation/widgets/home_page/select_cart_circle.dart';
 
 class SelectCart extends StatelessWidget {
@@ -22,17 +24,18 @@ final VoidCallback onClose;
               width: 70,
               height: 160,
               child: Padding(
-                padding: const EdgeInsets.all(4.5),
+                padding: const EdgeInsets.fromLTRB(4.5, 4.5, 4.5, 8),
                 child: Column(
                   children: [
                     GestureDetector(
                       onTap: () {
+                      
                         Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const CartPage(cartType: 'Еда'),
+                                const FoodCartPage(),
                           ),
                         );
                         onClose();
@@ -56,7 +59,7 @@ final VoidCallback onClose;
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                const CartPage(cartType: 'Товары'),
+                                const GoodsCartPage(),
                           ),
                         );
                         onClose();

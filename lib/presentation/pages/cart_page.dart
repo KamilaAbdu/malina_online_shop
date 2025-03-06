@@ -15,7 +15,7 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Корзина',
-          style: AppTextStyle.s20w700.copyWith(color: AppColors.cartTitle),
+          style: AppTextStyle.s20w700.copyWith(color: AppColors.cartName),
         ),
         leading: IconButton(
           padding: const EdgeInsets.symmetric(

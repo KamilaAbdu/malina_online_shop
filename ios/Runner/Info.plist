@@ -47,5 +47,8 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<!-- Разрешение на доступ к камере -->
+		<key>NSCameraUsageDescription</key>
+		<string>Для сканирования QR-кодов требуется доступ к камере.</string>
 	</dict>
 </plist>
