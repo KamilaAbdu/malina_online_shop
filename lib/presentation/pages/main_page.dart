@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:malina_online_shop/data/core/constants/app_assets.dart';
 import 'package:malina_online_shop/data/core/constants/app_colos.dart';
 import 'package:malina_online_shop/data/core/constants/app_dimens.dart';
@@ -15,7 +14,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
     return Scaffold(
       bottomNavigationBar: const MainPageBottomNavigationBar(),
       body: SafeArea(

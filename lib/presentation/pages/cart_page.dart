@@ -5,7 +5,7 @@ import 'package:malina_online_shop/data/core/constants/app_text_styles.dart';
 import 'package:malina_online_shop/presentation/pages/main_page.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key? key, required this.cartType}) : super(key: key);
+  const CartPage({super.key, required this.cartType});
 
   final String cartType;
 

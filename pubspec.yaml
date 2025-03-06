@@ -9,14 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_native_splash: ^2.4.4
   google_fonts: ^6.2.1
 
-flutter_native_splash:
-  color: "#F72055"
-  image: assets/icons/logo.png
-  android: true
-  ios: true
 
 dev_dependencies:
   flutter_test:
