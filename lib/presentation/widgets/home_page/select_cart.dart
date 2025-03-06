@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:malina_online_shop/data/core/constants/app_assets.dart';
 import 'package:malina_online_shop/data/core/constants/app_dimens.dart';
 import 'package:malina_online_shop/presentation/pages/cart_page.dart';
 import 'package:malina_online_shop/presentation/pages/food_cart_page.dart';
@@ -22,7 +23,7 @@ final VoidCallback onClose;
           Positioned(
             child: SizedBox(
               width: 70,
-              height: 160,
+              height: 164,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(4.5, 4.5, 4.5, 8),
                 child: Column(
@@ -42,10 +43,10 @@ final VoidCallback onClose;
                       },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 10),
-                        child: const Column(
+                        child: Column(
                           children: [
                             SelectCartBackCircle(
-                              icon: Icons.fastfood,
+                              icon: Image.asset(AppAssets.foodIcon),
                               text: 'Еда',
                                ),
                           ],
@@ -64,8 +65,8 @@ final VoidCallback onClose;
                         );
                         onClose();
                       },
-                      child: const SelectCartBackCircle(
-                        icon: Icons.shopping_cart,
+                      child: SelectCartBackCircle(
+                        icon: Image.asset(AppAssets.cosmeticsIcon),
                         text: 'Товары',
                       ),
                     ),

@@ -14,7 +14,7 @@ class _QrPageState extends State<QrPage> {
   Future<void> _scanQR() async {
     try {
       String qrResult = await FlutterBarcodeScanner.scanBarcode(
-        "#ff6666", // Цвет кнопки "Отмена"
+        "#ff6666", 
         "Отмена",
         true,
         ScanMode.QR,
@@ -51,7 +51,7 @@ class _QrPageState extends State<QrPage> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         iconTheme: const IconThemeData(color: Colors.white),
-        actions: const [Icon(Icons.close)],
+        
       ),
       body: Center(
         child: Column(

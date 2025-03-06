@@ -3,9 +3,12 @@ import 'package:malina_online_shop/data/core/constants/app_assets.dart';
 import 'package:malina_online_shop/data/core/constants/app_colos.dart';
 import 'package:malina_online_shop/presentation/pages/qr_page.dart';
 import 'package:malina_online_shop/presentation/widgets/home_page/select_cart.dart';
+import 'package:malina_online_shop/presentation/pages/main_page.dart';
 
 class MainPageBottomNavigationBar extends StatefulWidget {
-  const MainPageBottomNavigationBar({super.key});
+  const MainPageBottomNavigationBar({super.key, required this.currentIndex});
+
+  final int currentIndex;
 
   @override
   _MainPageBottomNavigationBarState createState() =>
@@ -14,36 +17,49 @@ class MainPageBottomNavigationBar extends StatefulWidget {
 
 class _MainPageBottomNavigationBarState
     extends State<MainPageBottomNavigationBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
   OverlayEntry? _overlayEntry;
+  final List<Widget> _pages = [
+    const MainPage(),
+    Container(), // Placeholder for "Избранное"
+    const QrPage(),
+    Container(), // Placeholder for "Профиль"
+    Container(),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.currentIndex;
+  }
 
   void _onItemTapped(int index) {
+    if (index == _selectedIndex) return;
+
     setState(() {
       _selectedIndex = index;
     });
 
-    if (index == 2) {
-      
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const QrPage()),
-      );
-    } else if (index == 4) {
-     
+    if (index == 4) {
       _toggleCartSelectionMenu(context);
     } else {
       _removeOverlay();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => _pages[index]),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       currentIndex: _selectedIndex,
       onTap: _onItemTapped,
       items: [
         const BottomNavigationBarItem(
-          icon: Icon(Icons.dashboard),
+          icon: Icon(Icons.dashboard_sharp),
           label: 'Лента',
         ),
         const BottomNavigationBarItem(
@@ -64,6 +80,8 @@ class _MainPageBottomNavigationBarState
         ),
       ],
       selectedItemColor: AppColors.selectedItem,
+      selectedFontSize: 10,
+      unselectedFontSize: 10,
       unselectedItemColor: Colors.grey,
       showUnselectedLabels: true,
       backgroundColor: Colors.white,
@@ -82,8 +100,9 @@ class _MainPageBottomNavigationBarState
   OverlayEntry _createOverlayEntry(BuildContext context) {
     return OverlayEntry(
       builder: (context) => Positioned(
-        right: 14,
-        bottom: 56,
+        right: 12,
+        bottom: 120,
+        
         child: SelectCart(
           onClose: _removeOverlay,
         ),

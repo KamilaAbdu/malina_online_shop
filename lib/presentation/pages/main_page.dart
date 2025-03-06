@@ -15,7 +15,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const MainPageBottomNavigationBar(),
+      bottomNavigationBar: const MainPageBottomNavigationBar(currentIndex: 0,),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(

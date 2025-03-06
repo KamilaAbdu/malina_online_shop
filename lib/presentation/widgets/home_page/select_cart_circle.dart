@@ -3,7 +3,7 @@ import 'package:malina_online_shop/data/core/constants/app_colos.dart';
 import 'package:malina_online_shop/data/core/constants/app_text_styles.dart';
 
 class SelectCartBackCircle extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String text;
 
   const SelectCartBackCircle({
@@ -24,11 +24,7 @@ class SelectCartBackCircle extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            size: 30,
-            color: AppColors.selectCartItems, 
-          ),
+          SizedBox(width: 23,child: icon,),
           const SizedBox(height: 4),
           Text(
             text,

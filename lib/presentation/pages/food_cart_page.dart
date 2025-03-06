@@ -33,7 +33,7 @@ class _FoodCartPageState extends State<FoodCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const MainPageBottomNavigationBar(),
+      bottomNavigationBar: const MainPageBottomNavigationBar(currentIndex: 4,),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pushReplacement(
