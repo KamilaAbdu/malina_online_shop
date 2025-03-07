@@ -9,13 +9,14 @@ import 'package:malina_online_shop/presentation/widgets/home_page/select_cart_ci
 class SelectCart extends StatelessWidget {
   const SelectCart({super.key, required this.onClose});
 
-final VoidCallback onClose;
+  final VoidCallback onClose;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(AppDimens.selectCartBorderRadius)),
+        borderRadius: BorderRadius.vertical(
+            top: Radius.circular(AppDimens.selectCartBorderRadius)),
         color: Colors.white,
       ),
       child: Stack(
@@ -30,26 +31,20 @@ final VoidCallback onClose;
                   children: [
                     GestureDetector(
                       onTap: () {
-                      
                         Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const FoodCartPage(),
+                            builder: (context) => const FoodCartPage(),
                           ),
                         );
                         onClose();
                       },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            SelectCartBackCircle(
-                              icon: Image.asset(AppAssets.foodIcon),
-                              text: 'Еда',
-                               ),
-                          ],
+                        child: SelectCartBackCircle(
+                          icon: Image.asset(AppAssets.foodIcon),
+                          text: 'Еда',
                         ),
                       ),
                     ),
@@ -59,8 +54,7 @@ final VoidCallback onClose;
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const GoodsCartPage(),
+                            builder: (context) => const GoodsCartPage(),
                           ),
                         );
                         onClose();

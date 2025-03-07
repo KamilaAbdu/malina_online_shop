@@ -8,6 +8,9 @@ class AppAssets {
   static const String cosmeticsIcon = 'assets/icons/cosmetic.png';
   static const String foodIcon = 'assets/icons/food_ic.png';
   static const String pizza = 'assets/images/pizza.png';
+  static const String hairShampoo= 'assets/images/shampoo.png';
+  static const String hairConditioner= 'assets/images/conditioner.png';
+  static const String hairShampooElseve= 'assets/images/shampoo_2.png';
 
 
 
